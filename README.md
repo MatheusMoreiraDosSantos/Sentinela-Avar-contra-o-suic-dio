@@ -1,8 +1,20 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Sobre o projeto
+
+    "Sentinela Avaré: contra o suicídio" é um projeto voluntário que busca combater o aumento dos casos de suicídio na cidade de Avaré. A iniciativa tem como objetivo identificar fatores de risco, oferecer apoio emocional e conscientizar a população sobre a importância da saúde mental. Utilizando dados e análises, o projeto pretende mapear áreas vulneráveis, conectar pessoas a redes de apoio e promover campanhas educativas. Atuando em parceria com a comunidade e especialistas, o Sentinela Avaré visa fortalecer a prevenção ao suicídio, criando uma rede de proteção e cuidado com a vida.
+
+    ### Qual é o problema ?
+
+    Os frequentes casos de suicídio em Avaré têm despertado uma profunda preocupação na comunidade. A dor e a perda causadas por esses episódios revelam a necessidade urgente de abordar a saúde mental de forma mais abrangente. Segundo dados do Ministério da Saúde, o Brasil registra cerca de 13 mil suicídios por ano, e a cidade de Avaré não está imune a essa triste realidade. Cada vida perdida é um eco de sofrimento que reverbera entre amigos e familiares, evidenciando a importância de um olhar mais atento para aqueles que enfrentam dificuldades emocionais.
+
+    Diante desse cenário, o projeto "Sentinela Avaré: Combatendo o Suicídio" surge como uma luz de esperança. A iniciativa visa criar uma plataforma onde pessoas possam relatar, de forma anônima e segura, sinais de depressão ou tendências suicidas em pessoas próximas. O suporte e a escuta são essenciais, e a tecnologia pode ser uma ferramenta poderosa para conectar pessoas em situação de vulnerabilidade a profissionais capacitados. Ao fomentar uma cultura de cuidado, podemos mudar a narrativa e oferecer caminhos para a recuperação.
+
+    É fundamental que a comunidade se una para enfrentar esse desafio. A prevenção do suicídio não é apenas uma responsabilidade individual, mas uma missão coletiva. Estudos indicam que intervenções comunitárias podem reduzir significativamente as taxas de suicídio. Portanto, ao implementar o "Sentinela Avaré", estamos não apenas salvando vidas, mas também construindo uma rede de apoio, empatia e acolhimento, que permitirá a transformação da dor em esperança e solidariedade.
+
+    ![alt text](image.png)
 
 ## Getting Started
 
-First, run the development server:
+Primeiro, rode o ambiente de desenvolvimento:
 
 ```bash
 npm run dev
@@ -14,23 +26,4 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Abra [http://localhost:3000](http://localhost:3000) com o seu navegador para ver o resultado.
