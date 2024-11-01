@@ -11,6 +11,9 @@ Diante desse cenário, o projeto "Sentinela Avaré: Combatendo o Suicídio" surg
 É fundamental que a comunidade se una para enfrentar esse desafio. A prevenção do suicídio não é apenas uma responsabilidade individual, mas uma missão coletiva. Estudos indicam que intervenções comunitárias podem reduzir significativamente as taxas de suicídio. Portanto, ao implementar o "Sentinela Avaré", estamos não apenas salvando vidas, mas também construindo uma rede de apoio, empatia e acolhimento, que permitirá a transformação da dor em esperança e solidariedade.
 
 ![image](https://github.com/user-attachments/assets/15f034d3-ff97-40fc-994c-59345a6fa482)
+![image](https://github.com/user-attachments/assets/87684dc2-fd9b-49fc-8723-3d94fe8be335)
+![image](https://github.com/user-attachments/assets/b4847bca-7bff-4f8c-83ab-646eefde8873)
+
 
 ## Getting Started
 
