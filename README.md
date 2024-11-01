@@ -15,18 +15,13 @@ Diante desse cenário, o projeto "Sentinela Avaré: Combatendo o Suicídio" surg
 ![image](https://github.com/user-attachments/assets/b4847bca-7bff-4f8c-83ab-646eefde8873)
 
 
-## Getting Started
+## Como iniciar o projeto na sua maquina
 
 Primeiro, rode o ambiente de desenvolvimento:
 
 ```bash
+npm i
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Abra [http://localhost:3000](http://localhost:3000) com o seu navegador para ver o resultado.
