@@ -4,7 +4,7 @@ export default interface IReport {
   questions: IQuestionsAnswered[];
   address: string;
 }
-interface IQuestionsAnswered {
+export interface IQuestionsAnswered {
   question: string;
-  answere: string;
+  answer: string;
 }
