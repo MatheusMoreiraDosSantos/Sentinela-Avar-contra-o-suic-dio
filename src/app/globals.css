@@ -1,21 +1,92 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+* {
+  margin: 0;
+  border: none;
+  font-family: "Poppins", serif;
+  color: #fff;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+textarea {
+  font-family: "Poppins", serif;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background: rgb(21, 9, 105);
+  background: linear-gradient(
+    180deg,
+    rgba(21, 9, 105, 1) 0%,
+    rgba(38, 31, 132, 1) 33%,
+    rgba(63, 62, 171, 1) 67%,
+    rgba(117, 129, 255, 1) 100%
+  );
+}
+
+button {
+  border: none;
+  width: 130px;
+  height: 50px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.question {
+  display: flex;
+  flex-direction: column;
+  font-size: large;
+  span {
+    text-align: center;
+    margin-bottom: 5px;
+  }
+  p {
+    margin-bottom: 20px;
+    text-align: justify;
+    line-height: 22px;
+  }
+  .optionContainer {
+    margin-bottom: 10px;
+    input[type="radio"] {
+      margin-right: 5px;
+    }
+  }
+  .input-adress {
+    color: rgb(21, 9, 105);
+    padding: 4px;
+    border-radius: 10px;
+    font-family: "Poppins", serif;
+  }
+}
+.questionsControllers {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.container-content {
+  width: 100%;
+  max-width: 330px;
+  svg {
+    position: absolute;
+    bottom: 0;
+    z-index: -1;
+  }
+  .container-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 90vh;
+
+    .first-step {
+      display: flex;
+      justify-content: center;
+    }
+  }
 }

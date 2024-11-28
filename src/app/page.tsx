@@ -4,35 +4,43 @@ import { multipleChoiceQuestions } from "../constants/questions";
 import NextButton from "@/componnents/buttons/NextButton";
 import BackButton from "@/componnents/buttons/BackButton";
 import SubmitButton from "@/componnents/buttons/SubmitButton";
+import Avatar from "./avatar";
+import { toast } from "react-toastify";
+import { redirect } from "next/navigation";
 
 const questionsNotFound = !multipleChoiceQuestions.length;
 
 export default function Home() {
   const [index, setIndex] = React.useState(0);
-  const [selectedOption, setSelectedOption] = React.useState<string | null>(null);
-  const [answersSelected, setAnswersSelected] = React.useState<{ question: string; answer: string }[]>([]);
+
+  const [answersSelected, setAnswersSelected] = React.useState<
+    { question: string; answer: string }[]
+  >([]);
 
   const handleOptionChange = (option: string) => {
-    setSelectedOption(option);
     setAnswersSelected((prevAnswers) => {
       const updatedAnswers = [...prevAnswers];
-      updatedAnswers[index] = { question: multipleChoiceQuestions[index].question, answer: option };
+      updatedAnswers[index] = {
+        question: multipleChoiceQuestions[index].question,
+        answer: option,
+      };
       return updatedAnswers;
     });
   };
 
   const renderQuestionByIndex = (index: number) => {
-    const { question, options } = multipleChoiceQuestions[index];
+    const { question, options, type } = multipleChoiceQuestions[index];
 
     const renderOptions = () => {
+      if (!options.length) return;
       return options.map((option, optionIndex) => (
-        <div key={optionIndex}>
+        <div className="optionContainer" key={optionIndex}>
           <input
             type="radio"
             id={`option-${index}-${optionIndex}`}
             name={`question-${index}`}
             value={option}
-            checked={selectedOption === option}
+            checked={answersSelected[index]?.answer === option}
             onChange={() => handleOptionChange(option)}
           />
           <label htmlFor={`option-${index}-${optionIndex}`}>{option}</label>
@@ -40,42 +48,91 @@ export default function Home() {
       ));
     };
 
+    const renderInputText = () => {
+      const handleChangeAdress = (adress: string) => {
+        setAnswersSelected((prevAnswers) => {
+          const updatedAnswers = [...prevAnswers];
+          updatedAnswers[index] = {
+            question: multipleChoiceQuestions[index].question,
+            answer: adress,
+          };
+          return updatedAnswers;
+        });
+      };
+      return (
+        <input
+          className="input-adress"
+          onChange={(e) => handleChangeAdress(e.target.value)}
+          value={answersSelected[index]?.answer || ""}
+          type="text"
+        />
+      );
+    };
+
+    const renderQuestion = () => {
+      if (type === "multiple choice") {
+        return renderOptions();
+      }
+      if (type === "text") {
+        return renderInputText();
+      }
+    };
+
     return (
-      <fieldset>
+      <fieldset className="question">
+        <span>{index + 1}/12</span>
         <p>{question}</p>
-        {renderOptions()}
+        {renderQuestion()}
       </fieldset>
     );
   };
 
-  const handleNextClick = () => setIndex(index + 1);
-  const handleBackButton = () => setIndex(index - 1);
-  const handleSubmitButton = () => ()=> console.log(answersSelected);
-  
-  
+  const handleNextClick = () => {
+    setIndex(index + 1);
+  };
+
+  const handleBackButton = () => {
+    setIndex(index - 1);
+  };
+
+  const handleSubmitButton = () => {
+    console.log(answersSelected);
+    if (answersSelected.length < 12) {
+      toast.error(
+        "Ops, parece que você esqueceu de preencher algum campo, lembre-se de responder todas as perguntas."
+      );
+      return;
+    }
+    // salvar a informações no banco
+    redirect("/success");
+  };
+
   const renderBackButton = () => {
-    return <BackButton onClick={handleBackButton}/>;
-};
+    return <BackButton onClick={handleBackButton} />;
+  };
 
   const renderNextButton = () => {
-    return <NextButton onClick={handleNextClick}/>;
+    return <NextButton onClick={handleNextClick} />;
   };
 
   const renderSubmitButton = () => {
-    return <SubmitButton onClick={handleSubmitButton}/>}
+    return <SubmitButton onClick={handleSubmitButton} />;
+  };
 
   const renderQuestionsController = () => {
-    if (index === 0) return renderNextButton();
+    if (index === 0) {
+      return <div className="first-step">{renderNextButton()}</div>;
+    }
     if (index === multipleChoiceQuestions.length - 1) {
       return (
-        <div>
+        <div className="questionsControllers">
           {renderBackButton()}
           {renderSubmitButton()}
         </div>
       );
     }
     return (
-      <div>
+      <div className="questionsControllers">
         {renderBackButton()}
         {renderNextButton()}
       </div>
@@ -86,7 +143,8 @@ export default function Home() {
     if (questionsNotFound) {
       return (
         <p>
-          Nenhuma pergunta foi encontrada, recarregue a página ou tente novamente mais tarde.
+          Nenhuma pergunta foi encontrada, recarregue a página ou tente
+          novamente mais tarde.
         </p>
       );
     }
@@ -94,9 +152,12 @@ export default function Home() {
   };
 
   return (
-    <div>
-      {renderContent()}
-      {renderQuestionsController()}
+    <div className="container-content">
+      <div className="container-form">
+        {renderContent()}
+        {renderQuestionsController()}
+      </div>
+      <Avatar />
     </div>
   );
 }
