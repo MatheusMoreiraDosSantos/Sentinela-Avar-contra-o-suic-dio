@@ -15,6 +15,9 @@ Diante desse cenário, o projeto "Sentinela Avaré: Combatendo o Suicídio" surg
 ![image](https://github.com/user-attachments/assets/b4847bca-7bff-4f8c-83ab-646eefde8873)
 
 
+![sentinela avará v01](https://github.com/user-attachments/assets/ff6294fb-7789-48a1-8920-5efa81ebadd4)
+
+
 ## Como iniciar o projeto na sua maquina
 
 Primeiro, rode o ambiente de desenvolvimento:
