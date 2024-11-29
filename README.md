@@ -28,3 +28,6 @@ npm run dev
 ```
 
 Abra [http://localhost:3000](http://localhost:3000) com o seu navegador para ver o resultado.
+
+## Link de produção:
+Abra [Sentinela Avaré: contra o suicídio](https://sentinela-avare-contra-o-suicidio.vercel.app) com o seu navegador para ver o sistema em produção.
