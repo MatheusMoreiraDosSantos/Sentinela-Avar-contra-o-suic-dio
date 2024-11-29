@@ -103,11 +103,13 @@ export default function Home() {
       toast.error(
         "Ops, parece que você esqueceu de preencher algum campo, lembre-se de responder todas as perguntas."
       );
+      setIsLoading(false);
       return;
     }
     const { success, message } = await createReport(answersSelected);
     if (!success) {
       toast.error(message);
+      setIsLoading(false);
       return;
     }
     setIsLoading(false);
