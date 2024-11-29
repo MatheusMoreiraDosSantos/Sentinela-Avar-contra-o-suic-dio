@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { multipleChoiceQuestions } from "../constants/questions";
 import NextButton from "@/componnents/buttons/NextButton";
 import BackButton from "@/componnents/buttons/BackButton";
@@ -7,14 +7,16 @@ import SubmitButton from "@/componnents/buttons/SubmitButton";
 import Avatar from "./avatar";
 import { toast } from "react-toastify";
 import { redirect } from "next/navigation";
+import createReport from "@/services/createReport";
+import { IQuestionsAnswered } from "@/interfaces/IReport";
 
 const questionsNotFound = !multipleChoiceQuestions.length;
 
 export default function Home() {
   const [index, setIndex] = React.useState(0);
-
+  const [isLoading, setIsLoading] = useState(false);
   const [answersSelected, setAnswersSelected] = React.useState<
-    { question: string; answer: string }[]
+    IQuestionsAnswered[]
   >([]);
 
   const handleOptionChange = (option: string) => {
@@ -95,15 +97,20 @@ export default function Home() {
     setIndex(index - 1);
   };
 
-  const handleSubmitButton = () => {
-    console.log(answersSelected);
+  const handleSubmitButton = async () => {
+    setIsLoading(true);
     if (answersSelected.length < 12) {
       toast.error(
         "Ops, parece que você esqueceu de preencher algum campo, lembre-se de responder todas as perguntas."
       );
       return;
     }
-    // salvar a informações no banco
+    const { success, message } = await createReport(answersSelected);
+    if (!success) {
+      toast.error(message);
+      return;
+    }
+    setIsLoading(false);
     redirect("/success");
   };
 
@@ -116,7 +123,7 @@ export default function Home() {
   };
 
   const renderSubmitButton = () => {
-    return <SubmitButton onClick={handleSubmitButton} />;
+    return <SubmitButton onClick={handleSubmitButton} isLoading={isLoading} />;
   };
 
   const renderQuestionsController = () => {
