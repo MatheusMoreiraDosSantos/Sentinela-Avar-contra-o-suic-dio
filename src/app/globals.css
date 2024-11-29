@@ -65,6 +65,7 @@ button {
   }
 }
 .questionsControllers {
+  position: relative;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -73,15 +74,17 @@ button {
 .container-content {
   width: 100%;
   max-width: 330px;
+  max-height: 100vh;
   svg {
     position: absolute;
     bottom: 0;
     z-index: -1;
   }
   .container-form {
+    position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
     height: 90vh;
 
     .first-step {

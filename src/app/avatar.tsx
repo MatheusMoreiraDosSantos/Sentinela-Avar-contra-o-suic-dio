@@ -8,7 +8,7 @@ export default function Avatar() {
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <g opacity="0.7" clip-path="url(#clip0_8_17)">
+        <g opacity="0.7" clipPath="url(#clip0_8_17)">
           <path
             d="M19.0078 230.477C19.0078 230.767 19.2411 231 19.5316 231H133.476C133.767 231 134 230.767 134 230.477C134 230.187 133.767 229.954 133.476 229.954H19.5316C19.2411 229.954 19.0078 230.187 19.0078 230.477Z"
             fill="#484565"
